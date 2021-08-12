@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+<h1>Please add new user</h1>
+<form action="#"
+      th:action="@{/add-user}"
+      th:object="${user}" method="post">
+    <div>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{username}" id="name" placeholder="enter your name">
+    </div>
+
+    <div>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="enter your age">
+    </div>
+
+    <div>
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="enter your password">
+    </div>
+    <p>
+        <li th:each="role : ${allRoles}">
+        <label>
+            <input th:type="checkbox" th:name="${role}">
+            <span th:text="${role}"></span>
+        </label>
+        </li>
+    </p>
+    <div>
+        <br>
+        <input type="submit" value="Add user">
+    </div>
+</form>
+</div>
+<a th:href="@{/login}"><input type="submit" value="log out"></a>
+
+</body>
+</html>

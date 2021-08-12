@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+
+<h2>Update user</h2>
+    <form action="#" th:action="@{/update-user}" th:object="${user}" method="post">
+        <input readonly type="hidden" th:field="*{id}" id="id" placeholder="ID">
+
+    <div>
+    <label for="name">Name</label>
+    <input type="text" th:field="*{username}" id="name" placeholder="Name">
+    </div>
+
+    <div>
+    <label for="age">Age</label>
+    <input type="text" th:field="*{age}" id="age" placeholder="Age">
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    </div>
+    <p>
+    <li th:each="role : ${allRoles}">
+        <label>
+            <input th:type="checkbox" th:name="${role}">
+            <span th:text="${role}"></span>
+        </label>
+    </li>
+    </p>
+        <br>
+    <input type="submit" value="Update User">
+
+</form>
+    <hr>
+<a th:href="@{/login}"><input type="submit" value="log out"></a>
+
+</body>
+</html>
